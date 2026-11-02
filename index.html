@@ -1,0 +1,558 @@
+<title>Saniket and Shrejal Wedding</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<style>
+/* Layout: scrolling site. Maroon hero with couple art and countdown, a families band, then one full-width section per function (Engagement, Haldi, Wedding), each with its own colour theme and couple illustration, then venues and footer. */
+:root {
+  --maroon: #5B0E1B;
+  --maroon-deep: #3A0811;
+  --marigold: #EDA81C;
+  --marigold-deep: #A8650A;
+  --ivory: #FFF8EC;
+  --sand: #F4E6D2;
+  --ink: #2B1317;
+  --ink-soft: #6A4A4D;
+  --line: rgba(91,14,27,.22);
+  --display: "Yatra One", Georgia, serif;
+  --body: "Cormorant Garamond", Georgia, serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font-family: var(--body); font-size: 1.25rem; line-height: 1.5; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--maroon-deep); z-index: 30; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+
+/* nav */
+nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--maroon-deep); color: var(--ivory); border-bottom: 2px solid var(--marigold); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 8px; }
+nav.top .mark { font-family: var(--display); color: var(--marigold); font-size: 1.15rem; white-space: nowrap; }
+nav.top ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
+nav.top a { text-decoration: none; font-weight: 600; letter-spacing: .06em; font-size: .95rem; text-transform: uppercase; padding: 4px 2px; border-bottom: 2px solid transparent; }
+nav.top a:hover, nav.top a.on { border-bottom-color: var(--marigold); }
+@media (max-width: 640px) { nav.top .mark { display: none; } nav.top ul { justify-content: center; width: 100%; } nav.top a { font-size: .85rem; } }
+
+/* art colour hooks (each section overrides) */
+.art { width: 100%; height: auto; display: block; max-width: 100%; }
+
+/* hero */
+.hero {
+  position: relative; overflow: hidden; text-align: center; color: var(--ivory);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(237,168,28,.28), transparent 60%),
+    repeating-conic-gradient(from 0deg at 50% 120%, rgba(237,168,28,.07) 0 6deg, transparent 6deg 12deg),
+    var(--maroon);
+  padding-block: clamp(36px, 7vw, 64px) 0;
+}
+.garland { height: 34px; background: radial-gradient(circle at 17px 17px, var(--dot, var(--marigold)) 0 9px, var(--dot2, #C97F0B) 9px 12px, transparent 12.5px) 0 0 / 34px 34px repeat-x; }
+.hero .garland { margin-top: clamp(24px, 5vw, 44px); }
+.invoke { display: flex; justify-content: center; gap: 8px 40px; flex-wrap: wrap; font-weight: 600; letter-spacing: .05em; color: #F4D9A6; font-size: 1rem; }
+.hero .kicker { margin: 22px 0 0; font-style: italic; font-size: 1.3rem; color: #F4D9A6; }
+.hero h1 { font-family: var(--display); font-weight: 400; margin: 6px 0 0; line-height: 1; color: var(--marigold); font-size: clamp(3.2rem, 14vw, 6.4rem); text-wrap: balance; }
+.hero h1 .amp { display: block; font-size: .36em; color: var(--ivory); font-family: var(--body); font-style: italic; margin: 4px 0; }
+.hero .art { width: min(300px, 78%); margin: 14px auto 0; --shawl: #8B1228; --border2: #C8102E; --groom: #F3E3C0; --safa: #E07B16; --bride: #1F7A4D; --bridetop: #B3122A; --halo: rgba(255,248,236,.1); --arch: #EDA81C; --mala: #F28C28; }
+.hero .when { margin: 10px 0 0; font-size: 1.35rem; font-weight: 600; letter-spacing: .04em; }
+.hero .where { margin: 2px 0 0; color: #F4D9A6; }
+.swastik { width: 42px; height: 42px; color: var(--marigold); margin: 0 auto 4px; display: block; }
+.count { display: grid; grid-template-columns: repeat(4, minmax(0, 92px)); gap: 12px; justify-content: center; margin: 26px 0 0; }
+.count div { border: 1.5px solid var(--marigold); border-radius: 14px; padding: 10px 4px 8px; background: rgba(58,8,17,.55); }
+.count b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 8vw, 2.7rem); line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ivory); }
+.count span { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: #F4D9A6; font-weight: 700; }
+.count-note { margin: 12px 0 0; font-style: italic; color: #F4D9A6; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 22px; }
+.btn { font: inherit; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .95rem; display: inline-block; text-decoration: none; cursor: pointer; padding: 11px 24px; border-radius: 999px; border: 2px solid var(--marigold); background: var(--marigold); color: var(--maroon-deep); }
+.btn:hover { background: #F7BE45; }
+.btn.ghost { background: transparent; color: var(--ivory); }
+.btn.ghost:hover { background: rgba(237,168,28,.18); }
+
+/* petals */
+.petals span { position: absolute; top: -30px; width: 12px; height: 16px; border-radius: 60% 0 60% 0; background: var(--marigold); opacity: .8; animation: fall linear infinite; }
+.petals span:nth-child(3n) { background: #F28C28; }
+.petals span:nth-child(4n) { background: #E5533D; width: 10px; height: 13px; }
+@keyframes fall { to { transform: translate3d(var(--dx, 40px), 115vh, 0) rotate(520deg); } }
+@media (prefers-reduced-motion: reduce) { .petals { display: none; } html { scroll-behavior: auto; } .art * { animation: none !important; } }
+
+/* sections */
+section.block { padding-block: clamp(48px, 8vw, 84px); }
+.eyebrow { font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: .9rem; color: var(--marigold-deep); margin: 0; }
+h2.title { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 7vw, 3.2rem); line-height: 1.1; margin: 6px 0 0; color: var(--maroon); text-wrap: balance; }
+.sub { max-width: 36em; color: var(--ink-soft); margin: 10px 0 0; }
+
+/* families */
+.families { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px; margin-top: 32px; }
+.fam { background: var(--ivory); border: 2px solid var(--maroon); border-radius: 6px; padding: 26px 22px; position: relative; min-width: 0; }
+.fam::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+.fam .role { font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: .85rem; color: var(--marigold-deep); }
+.fam h3 { font-family: var(--display); font-weight: 400; font-size: 2.4rem; margin: 2px 0 6px; color: var(--maroon); }
+.fam p { margin: 0; color: var(--ink-soft); }
+.fam .who { color: var(--ink); font-weight: 600; margin-top: 10px; }
+.blessing { margin: 30px auto 0; max-width: 34em; text-align: center; font-style: italic; font-size: 1.3rem; text-wrap: balance; }
+
+/* function sections: one theme each */
+.evt { position: relative; background: var(--e-bg); color: var(--e-fg); padding-block: clamp(54px, 9vw, 96px); overflow: hidden; --dot: var(--e-accent); --dot2: var(--e-fg); }
+.evt::before { content: ""; position: absolute; inset: 0 0 auto; height: 34px; background: radial-gradient(circle at 17px 17px, var(--e-dot) 0 9px, var(--e-dot2) 9px 12px, transparent 12.5px) 0 0 / 34px 34px repeat-x; }
+.evt-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 28px clamp(24px, 5vw, 64px); align-items: center; }
+.evt.flip .evt-text { order: 2; }
+.evt .art { width: min(380px, 100%); margin-inline: auto; filter: drop-shadow(0 12px 18px rgba(0,0,0,.16)); }
+.evt-icon { width: 64px; height: 64px; color: var(--e-accent); display: block; margin-bottom: 4px; }
+.evt .eyebrow { color: var(--e-accent); }
+.evt h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1; margin: 6px 0 0; color: var(--e-head); }
+.evt .lede { margin: 14px 0 0; max-width: 28em; font-size: 1.3rem; text-wrap: pretty; }
+.facts { margin: 22px 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 20px; align-items: center; }
+.datebox { border: 2px solid var(--e-accent); border-radius: 12px; padding: 8px 16px; text-align: center; line-height: 1; background: var(--e-card); }
+.datebox b { display: block; font-family: var(--display); font-weight: 400; font-size: 3rem; color: var(--e-head); }
+.datebox span { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+.facts dl { margin: 0; display: grid; gap: 10px; }
+.facts dt { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; color: var(--e-accent); }
+.facts dd { margin: 0; font-weight: 600; font-size: 1.25rem; overflow-wrap: anywhere; }
+.evt .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.evt .btn { background: var(--e-accent); border-color: var(--e-accent); color: var(--e-btn-fg); }
+.evt .btn:hover { filter: brightness(1.08); }
+.evt .btn.line { background: transparent; color: var(--e-fg); border-color: var(--e-fg); }
+.evt .btn.line:hover { background: rgba(127,127,127,.15); }
+@media (max-width: 760px) { .evt-grid { grid-template-columns: 1fr; } .evt.flip .evt-text { order: 0; } .evt .art { width: min(300px, 80%); } .facts { grid-template-columns: 1fr; } .datebox { justify-self: start; } }
+
+.chips { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: flex; align-items: center; gap: 8px; padding: 5px 16px 5px 8px; border: 1.5px solid var(--e-accent); border-radius: 999px; background: var(--e-card); font-weight: 700; font-size: 1.05rem; }
+.chip svg { width: 30px; height: 30px; color: var(--e-accent); flex: none; }
+.th-eng { --e-bg: #FBE3E1; --e-fg: #3B1626; --e-head: #7A1F3D; --e-accent: #0E6B6F; --e-card: #FFF4F2; --e-dot: #E88DA0; --e-dot2: #7A1F3D; --e-btn-fg: #FFFFFF;
+  --groom: #F7E7D0; --shawl: #8E1B3A; --safa: #EFA33A; --bride: #7B2D8E; --bridetop: #C2185B; --border2: #1F8A5B; --halo: rgba(255,255,255,.55); --arch: #0E6B6F; --mala: #F2A7B5; background-image: radial-gradient(circle at 85% 20%, rgba(255,255,255,.7), transparent 40%); }
+.th-haldi { --e-bg: #FFD84A; --e-fg: #4A3000; --e-head: #6B3F00; --e-accent: #2F7A33; --e-card: #FFF0A8; --e-dot: #F28C28; --e-dot2: #8A4B00; --e-btn-fg: #FFFFFF;
+  --groom: #FFF3B0; --safa: #FFFBE0; --bride: #F6B800; --bridetop: #FFE066; --halo: rgba(255,248,200,.7); --arch: #2F7A33; --mala: #F28C28; --smudge: #E59A00; --border2: #2F7A33; background-image: radial-gradient(circle at 15% 25%, rgba(255,255,255,.55), transparent 42%); }
+.th-wed { --shawl: #8B1228; --border2: #C8102E; --e-bg: #5B0E1B; --e-fg: #FFF1DA; --e-head: #EDA81C; --e-accent: #EDA81C; --e-card: rgba(58,8,17,.55); --e-dot: #EDA81C; --e-dot2: #C97F0B; --e-btn-fg: #3A0811;
+  --groom: #F3E3C0; --safa: #E07B16; --bride: #1F7A4D; --bridetop: #B3122A; --halo: rgba(255,248,236,.1); --arch: #EDA81C; --mala: #F28C28; background-image: repeating-conic-gradient(from 0deg at 50% 130%, rgba(237,168,28,.07) 0 6deg, transparent 6deg 12deg); }
+.th-wed .evt-icon { color: var(--marigold); }
+
+/* venue */
+.alt { background: var(--sand); }
+.venue { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px; margin-top: 32px; }
+.vcard { border: 2px solid var(--maroon); border-radius: 18px; padding: 26px 22px; background: var(--ivory); box-shadow: 0 5px 0 var(--maroon); min-width: 0; }
+.vcard h3 { font-family: var(--display); font-weight: 400; font-size: 1.7rem; margin: 6px 0 4px; line-height: 1.2; color: var(--maroon); text-wrap: balance; }
+.vcard p { margin: 0; }
+.vcard .btn { margin-top: 16px; background: var(--maroon); border-color: var(--maroon); color: var(--ivory); }
+.vcard .btn:hover { background: var(--maroon-deep); }
+
+footer { background: var(--maroon-deep); color: var(--ivory); text-align: center; padding-block: 46px 40px; }
+footer .big { font-family: var(--display); color: var(--marigold); font-size: 2rem; margin: 6px 0; }
+footer p { margin: 4px 0; color: #F4D9A6; }
+footer .hosts { color: var(--ivory); font-weight: 600; }
+footer .note { display: inline-block; border: 1.5px solid var(--marigold); padding: 6px 18px; margin-top: 16px; font-weight: 700; }
+
+/* gentle idle motion on the couple art */
+.halo-spin { transform-origin: 160px 190px; animation: spin 90s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="swastik" viewBox="0 0 40 40">
+      <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 4V36M4 20H36"/><path d="M20 4H30M36 20V30M20 36H10M4 20V10"/>
+      </g>
+      <g fill="currentColor"><circle cx="26" cy="12" r="1.6"/><circle cx="28" cy="28" r="1.6"/><circle cx="12" cy="28" r="1.6"/><circle cx="12" cy="12" r="1.6"/></g>
+    </symbol>
+
+    <!-- Event icons -->
+    <symbol id="i-ring" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="23" cy="40" r="14"/><circle cx="41" cy="40" r="14"/>
+        <path d="M32 6L38 13L32 20L26 13Z" fill="currentColor" fill-opacity=".25"/>
+        <path d="M21 13H43" stroke-width="2"/>
+      </g>
+    </symbol>
+    <symbol id="i-haldi" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 34H56Q54 54 32 56Q10 54 8 34Z" fill="currentColor" fill-opacity=".2"/>
+        <path d="M12 34Q32 24 52 34"/>
+        <path d="M32 24Q26 12 32 6Q38 12 32 24Z"/>
+        <path d="M22 28Q12 22 10 14Q20 16 22 28Z"/><path d="M42 28Q52 22 54 14Q44 16 42 28Z"/>
+      </g>
+    </symbol>
+    <symbol id="i-kalash" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M32 3Q26 10 32 15Q38 10 32 3Z" fill="currentColor" fill-opacity=".3"/>
+        <path d="M32 22Q20 14 12 18Q20 25 32 24Q44 25 52 18Q44 14 32 22Z"/>
+        <path d="M22 26H42"/>
+        <path d="M19 28Q6 38 12 50Q16 60 32 60Q48 60 52 50Q58 38 45 28Z"/>
+        <path d="M14 42H50" stroke-width="2.5"/>
+      </g>
+    </symbol>
+
+    <!-- Maharashtrian ritual icons -->
+    <symbol id="i-sakhar" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 24Q32 18 44 24L48 52Q32 58 16 52Z" fill="currentColor" fill-opacity=".18"/>
+        <path d="M24 22L20 10M40 22L44 10M20 10Q32 16 44 10"/>
+        <path d="M24 38H40" stroke-width="2.5"/>
+      </g>
+      <g fill="currentColor"><circle cx="28" cy="45" r="1.8"/><circle cx="36" cy="46" r="1.8"/><circle cx="32" cy="31" r="1.8"/></g>
+    </symbol>
+    <symbol id="i-vida" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 56C8 40 6 20 20 14Q28 12 30 22Q32 12 40 14C54 20 52 40 30 56Z" fill="currentColor" fill-opacity=".18"/>
+        <path d="M30 54V24M30 34L21 26M30 34L39 26M30 44L22 38M30 44L38 38" stroke-width="2.2"/>
+      </g>
+      <circle cx="50" cy="52" r="6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-bangles" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-linecap="round">
+        <circle cx="25" cy="34" r="17" stroke-width="5"/>
+        <circle cx="39" cy="34" r="17" stroke-width="5"/>
+        <circle cx="32" cy="34" r="10" stroke-width="3" stroke-dasharray="0.1 6"/>
+      </g>
+    </symbol>
+    <symbol id="i-torana" viewBox="0 0 64 64">
+      <path d="M4 12Q32 30 60 12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <g fill="currentColor">
+        <ellipse cx="14" cy="26" rx="4.5" ry="10" transform="rotate(14 14 26)"/>
+        <circle cx="24" cy="31" r="5"/>
+        <ellipse cx="32" cy="38" rx="4.5" ry="10"/>
+        <circle cx="40" cy="31" r="5"/>
+        <ellipse cx="50" cy="26" rx="4.5" ry="10" transform="rotate(-14 50 26)"/>
+      </g>
+    </symbol>
+    <symbol id="i-flower" viewBox="0 0 64 64">
+      <g fill="currentColor">
+        <circle cx="32" cy="14" r="9"/><circle cx="48" cy="22" r="9"/><circle cx="48" cy="42" r="9"/>
+        <circle cx="32" cy="50" r="9"/><circle cx="16" cy="42" r="9"/><circle cx="16" cy="22" r="9"/>
+      </g>
+      <circle cx="32" cy="32" r="9" fill="var(--e-card, #fff)"/><circle cx="32" cy="32" r="4" fill="currentColor"/>
+    </symbol>
+            
+    <!-- Maharashtrian bride (nauvari saree, mundavalya, nath, kamarpatta, mangalsutra). Centred on x=225.
+         Colours come from CSS custom properties set by the section that uses it. -->
+    <g id="bride-g">
+      <path d="M196 214H254L278 350Q225 364 172 350Z" fill="var(--bride, #B3122A)"/>
+      <path d="M210 236L225 354L240 236Z" fill="rgba(0,0,0,.2)"/>
+      <path d="M217 236L225 354M225 236V354M233 236L225 354" fill="none" stroke="#EDA81C" stroke-width="1.5"/>
+      <path d="M174 340Q225 356 276 340" fill="none" stroke="#EDA81C" stroke-width="5"/>
+      <path d="M180 328Q225 342 270 328" fill="none" stroke="var(--border2, #2E8B3A)" stroke-width="4"/>
+      <path d="M203 146Q225 138 247 146L252 218H198Z" fill="var(--bridetop, #8E0E20)"/>
+      <path d="M201 144L214 141Q236 192 264 246L250 258Q222 208 201 144Z" fill="var(--bride, #B3122A)" stroke="#EDA81C" stroke-width="2.5"/>
+      <path d="M197 216Q225 226 255 216" fill="none" stroke="#EDA81C" stroke-width="6"/>
+      <ellipse cx="240" cy="76" rx="13" ry="11" fill="#1E120C"/>
+      <g fill="#FFFFFF"><circle cx="230" cy="72" r="2.3"/><circle cx="236" cy="67" r="2.3"/><circle cx="244" cy="67" r="2.3"/><circle cx="250" cy="73" r="2.3"/><circle cx="251" cy="81" r="2.3"/></g>
+      <rect x="219" y="124" width="12" height="22" fill="#E0A877"/>
+      <ellipse cx="225" cy="106" rx="18" ry="22" fill="#E8B48A"/>
+      <path d="M206 104Q225 76 244 104Q225 90 206 104Z" fill="#1E120C"/>
+      <path d="M225 80V90" stroke="#E3AE80" stroke-width="1.4"/>
+      <path d="M207 98Q225 120 243 98" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+      <path d="M208 104Q225 128 242 104" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+      <path d="M207 98L205 122M243 98L245 122" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+      <path d="M220 93Q225 101 230 93Q225 97 220 93Z" fill="#C8102E"/><circle cx="225" cy="91" r="1.6" fill="#C8102E"/>
+      <ellipse cx="218" cy="109" rx="3.6" ry="2.1" fill="#FFFFFF"/><circle cx="218" cy="109" r="1.8" fill="#2A140C"/><circle cx="218.6" cy="108.4" r=".6" fill="#FFFFFF"/><path d="M213.8 109.4Q218 106 222.2 109.4" fill="none" stroke="#1E120C" stroke-width="1.5" stroke-linecap="round"/><path d="M213.6 109L212.4 107.6M222.4 109L223.6 107.6" stroke="#1E120C" stroke-width="1" stroke-linecap="round"/><ellipse cx="232" cy="109" rx="3.6" ry="2.1" fill="#FFFFFF"/><circle cx="232" cy="109" r="1.8" fill="#2A140C"/><circle cx="232.6" cy="108.4" r=".6" fill="#FFFFFF"/><path d="M227.8 109.4Q232 106 236.2 109.4" fill="none" stroke="#1E120C" stroke-width="1.5" stroke-linecap="round"/><path d="M227.6 109L226.4 107.6M236.4 109L237.6 107.6" stroke="#1E120C" stroke-width="1" stroke-linecap="round"/><path d="M213 103Q218 100.5 223 102.6M227 102.6Q232 100.5 237 103" fill="none" stroke="#1E120C" stroke-width="1.5" stroke-linecap="round"/><path d="M225 111Q224 115 226 116" fill="none" stroke="#B57650" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="220" cy="118" r="4.6" fill="none" stroke="#EDA81C" stroke-width="1.5"/><circle cx="220" cy="123" r="1.7" fill="#FFFFFF"/>
+      <path d="M220.5 125.2Q223 123.6 225 124.6Q227 123.6 229.5 125.2Q225 130 220.5 125.2Z" fill="#C2273D"/><path d="M222.6 125.6Q225 127 227.4 125.6" fill="none" stroke="#FF9AA5" stroke-width=".8" opacity=".7"/>
+      <circle cx="214" cy="116" r="4" fill="var(--smudge, none)" opacity=".7"/><circle cx="236" cy="116" r="4" fill="var(--smudge, none)" opacity=".7"/>
+      <circle cx="205" cy="120" r="3" fill="#EDA81C"/><circle cx="245" cy="120" r="3" fill="#EDA81C"/>
+      <path d="M208 146Q225 166 242 146" fill="none" stroke="#EDA81C" stroke-width="4" stroke-dasharray="0.1 6" stroke-linecap="round"/>
+      <path d="M213 152Q225 192 237 152" fill="none" stroke="#1B1B1B" stroke-width="3" stroke-dasharray="0.1 4.5" stroke-linecap="round"/>
+      <circle cx="222" cy="180" r="3.4" fill="none" stroke="#EDA81C" stroke-width="1.8"/><circle cx="228" cy="180" r="3.4" fill="none" stroke="#EDA81C" stroke-width="1.8"/>
+    </g>
+
+    <!-- Maharashtrian couple: groom (left) in kurta, dhoti, uparna shawl and pheta turban; bride (right) in nauvari saree. -->
+    <symbol id="couple" viewBox="0 0 320 380">
+      <circle cx="160" cy="196" r="150" fill="var(--halo, none)"/>
+      <g class="halo-spin"><circle cx="160" cy="196" r="150" fill="none" stroke="var(--arch, #EDA81C)" stroke-width="9" stroke-dasharray="0.1 14" stroke-linecap="round"/></g>
+      <ellipse cx="160" cy="364" rx="124" ry="9" fill="#000" opacity=".2"/>
+
+      <!-- groom -->
+      <path d="M86 250H134L146 348H76Z" fill="#FBF3E0"/>
+      <path d="M110 256V346M97 256L92 346M123 256L128 346" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.5"/>
+      <path d="M77 338H145" stroke="#C9962B" stroke-width="5"/>
+      <ellipse cx="94" cy="354" rx="15" ry="6" fill="#8B5A2B"/><ellipse cx="128" cy="354" rx="15" ry="6" fill="#8B5A2B"/>
+      <path d="M74 150Q62 200 66 240" fill="none" stroke="var(--groom, #F3E3C0)" stroke-width="18" stroke-linecap="round"/>
+      <path d="M72 142Q110 128 148 142L152 284Q110 296 68 284Z" fill="var(--groom, #F3E3C0)"/>
+      <path d="M72 142Q110 128 148 142L152 284Q110 296 68 284Z" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/>
+      <path d="M100 140L110 154L120 140" fill="none" stroke="#C9962B" stroke-width="3"/>
+      <path d="M72 144L92 138Q126 200 152 262L134 272Q100 208 72 144Z" fill="var(--shawl, #C8102E)" stroke="#C9962B" stroke-width="2.5"/>
+      <rect x="104" y="126" width="12" height="18" fill="#D79F70"/>
+      <ellipse cx="110" cy="110" rx="19" ry="23" fill="#DDA574"/>
+      <ellipse cx="103" cy="110" rx="3.2" ry="1.9" fill="#FFFFFF"/><circle cx="103" cy="110" r="1.7" fill="#2A140C"/><circle cx="103.5" cy="109.5" r=".55" fill="#FFFFFF"/><path d="M99.2 110.3Q103 107.2 106.8 110.3" fill="none" stroke="#1E120C" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="117" cy="110" rx="3.2" ry="1.9" fill="#FFFFFF"/><circle cx="117" cy="110" r="1.7" fill="#2A140C"/><circle cx="117.5" cy="109.5" r=".55" fill="#FFFFFF"/><path d="M113.2 110.3Q117 107.2 120.8 110.3" fill="none" stroke="#1E120C" stroke-width="1.4" stroke-linecap="round"/><path d="M97 104.4Q103 101.4 108 103.6M112 103.6Q117 101.4 123 104.4" fill="none" stroke="#1E120C" stroke-width="2" stroke-linecap="round"/><path d="M110 112Q109 116 111 117" fill="none" stroke="#A5683F" stroke-width="1" stroke-linecap="round"/>
+      <path d="M101 121Q110 116 119 121Q110 124 101 121Z" fill="#1E120C"/>
+      <path d="M105.4 126.6Q110 125.6 114.6 126.6Q110 131.4 105.4 126.6Z" fill="#B5473E"/>
+      <circle cx="110" cy="101" r="2.2" fill="#C8102E"/>
+      <circle cx="99" cy="118" r="4" fill="var(--smudge, none)" opacity=".7"/><circle cx="121" cy="118" r="4" fill="var(--smudge, none)" opacity=".7"/>
+      <path d="M85 100Q84 64 110 60Q136 64 135 100Q123 92 110 92Q97 92 85 100Z" fill="var(--safa, #C8102E)"/>
+      <path d="M88 88Q110 72 132 88M90 78Q110 64 130 78" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.6"/>
+      <path d="M86 96Q110 86 134 96" fill="none" stroke="#EDA81C" stroke-width="4"/>
+      <path d="M124 66Q138 38 154 50Q148 62 136 76Z" fill="var(--safa, #C8102E)" stroke="#EDA81C" stroke-width="2"/>
+      <path d="M130 62Q140 50 148 54" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.4"/>
+      <path d="M80 146Q110 226 140 146" fill="none" stroke="var(--mala, #F28C28)" stroke-width="8" stroke-linecap="round" stroke-dasharray="0.1 10"/>
+      <path d="M82 148Q110 218 138 148" fill="none" stroke="#FFE08A" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 10"/>
+
+      <!-- bride -->
+      <use href="#bride-g"/>
+      <path d="M247 152Q260 200 255 240" fill="none" stroke="var(--bridetop, #8E0E20)" stroke-width="14" stroke-linecap="round"/>
+      <path d="M248 230H262M248 235H262" stroke="#2E8B3A" stroke-width="3.5"/><path d="M248 240H262" stroke="#EDA81C" stroke-width="3"/>
+      <circle cx="255" cy="248" r="7" fill="#E3AE80"/>
+
+      <!-- joined hands -->
+      <path d="M146 150Q168 192 172 226" fill="none" stroke="var(--groom, #F3E3C0)" stroke-width="16" stroke-linecap="round"/>
+      <path d="M203 152Q184 194 174 226" fill="none" stroke="var(--bridetop, #8E0E20)" stroke-width="13" stroke-linecap="round"/>
+      <path d="M164 217H184M164 222H184" stroke="#2E8B3A" stroke-width="3.5"/>
+      <circle cx="173" cy="232" r="9" fill="#E3AE80"/>
+      <circle cx="66" cy="246" r="7" fill="#E0A878"/>
+    </symbol>
+
+    <!-- Haldi: the bride alone, with flower jewellery, green bangles and a bowl of turmeric, under a mango-leaf toran -->
+    <symbol id="haldi-art" viewBox="0 0 320 380">
+      <circle cx="160" cy="196" r="150" fill="var(--halo, none)"/>
+      <g class="halo-spin"><circle cx="160" cy="196" r="150" fill="none" stroke="var(--arch, #2F7A33)" stroke-width="9" stroke-dasharray="0.1 14" stroke-linecap="round"/></g>
+      <path d="M30 40Q160 0 290 40" fill="none" stroke="#2F7A33" stroke-width="3.5" stroke-linecap="round"/>
+      <g fill="#2F7A33">
+        <ellipse cx="56" cy="45" rx="5" ry="12" transform="rotate(12 56 45)"/>
+        <ellipse cx="108" cy="36" rx="5" ry="12" transform="rotate(8 108 36)"/>
+        <ellipse cx="160" cy="32" rx="5" ry="12"/>
+        <ellipse cx="212" cy="36" rx="5" ry="12" transform="rotate(-8 212 36)"/>
+        <ellipse cx="264" cy="45" rx="5" ry="12" transform="rotate(-12 264 45)"/>
+      </g>
+      <g fill="#F28C28"><circle cx="82" cy="38" r="6"/><circle cx="134" cy="31" r="6"/><circle cx="186" cy="31" r="6"/><circle cx="238" cy="38" r="6"/></g>
+      <ellipse cx="160" cy="364" rx="110" ry="9" fill="#000" opacity=".2"/>
+
+      <use href="#bride-g" x="-65"/>
+
+      <!-- flower necklace and hair flowers -->
+      <path d="M142 150Q160 196 178 150" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-dasharray="0.1 9"/>
+      <path d="M143 152Q160 192 177 152" fill="none" stroke="#F28C28" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.1 9" stroke-dashoffset="4.5"/>
+      <g fill="#F28C28"><circle cx="164" cy="66" r="4"/><circle cx="170" cy="72" r="4"/></g>
+
+      <!-- arms folded to the bowl -->
+      <path d="M138 152Q126 204 144 238" fill="none" stroke="var(--bridetop, #FFE066)" stroke-width="14" stroke-linecap="round"/>
+      <path d="M182 152Q194 204 176 238" fill="none" stroke="var(--bridetop, #FFE066)" stroke-width="14" stroke-linecap="round"/>
+      <path d="M136 226H150M136 231H150M170 226H184M170 231H184" stroke="#2E8B3A" stroke-width="3.5"/>
+      <path d="M136 236H150M170 236H184" stroke="#EDA81C" stroke-width="3"/>
+      <path d="M134 246H186Q184 276 160 278Q136 276 134 246Z" fill="#C9962B"/>
+      <ellipse cx="160" cy="246" rx="26" ry="7" fill="#F2B600"/>
+      <g fill="#F28C28"><circle cx="154" cy="244" r="4"/><circle cx="163" cy="243" r="4"/><circle cx="168" cy="247" r="3.5"/></g>
+      <circle cx="141" cy="248" r="8" fill="#E3AE80"/><circle cx="179" cy="248" r="8" fill="#E3AE80"/>
+      <!-- scattered petals -->
+      <g fill="#F28C28"><circle cx="46" cy="190" r="6"/><circle cx="276" cy="222" r="6"/><circle cx="60" cy="300" r="5"/></g>
+      <g fill="#FFFFFF" opacity=".9"><circle cx="268" cy="170" r="5"/><circle cx="52" cy="244" r="5"/><circle cx="262" cy="300" r="5"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="top" aria-label="Sections">
+  <div class="wrap">
+    <span class="mark">S &amp; S</span>
+    <ul>
+      <li><a href="#home" class="on">Home</a></li>
+      <li><a href="#families">Families</a></li>
+      <li><a href="#engagement">Engagement</a></li>
+      <li><a href="#haldi">Haldi</a></li>
+      <li><a href="#wedding">Wedding</a></li>
+      <li><a href="#venue">Venue</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="petals" aria-hidden="true" id="petals"></div>
+  <div class="wrap" style="position:relative">
+    <svg class="swastik" aria-hidden="true"><use href="#swastik"/></svg>
+    <div class="invoke"><span>|| By the grace of Shri Bhairi Bhavani ||</span><span>|| By the grace of Shri Padmavati Devi ||</span></div>
+    <p class="kicker">With warm greetings, we invite you to the wedding of</p>
+    <h1>Shrejal <span class="amp">weds</span> Saniket</h1>
+    <svg class="art" viewBox="0 0 320 380" role="img" aria-label="Illustration of an Indian bride and groom holding hands"><use href="#couple"/></svg>
+    <p class="when">Friday, 1 January 2027 &middot; 1:57 PM</p>
+    <p class="where">Chiplun, Ratnagiri</p>
+
+    <div class="count" role="timer" aria-label="Time until the wedding">
+      <div><b id="cd-d">--</b><span>Days</span></div>
+      <div><b id="cd-h">--</b><span>Hours</span></div>
+      <div><b id="cd-m">--</b><span>Mins</span></div>
+      <div><b id="cd-s">--</b><span>Secs</span></div>
+    </div>
+    <p class="count-note" id="count-note">Counting down to 1:57 PM, Margashirsha Krishna Navami</p>
+
+    <div class="cta-row">
+      <a class="btn" href="#engagement">See the celebrations</a>
+      <a class="btn ghost" href="#venue">Find the venue</a>
+    </div>
+  </div>
+  <div class="garland" aria-hidden="true"></div>
+</header>
+
+<section class="block" id="families">
+  <div class="wrap">
+    <p class="eyebrow">Two families, one celebration</p>
+    <h2 class="title">Joined by blessings</h2>
+    <p class="sub">The wedding of the granddaughter of Shri Prakashsheth Shripatrao Salvi.</p>
+    <div class="families">
+      <article class="fam">
+        <span class="role">The Bride</span>
+        <h3>Shrejal</h3>
+        <p>Eldest daughter of</p>
+        <p class="who">Mrs. Nayana and the late Shri Sunil Suresh Surve</p>
+        <p>Kumbharkhani, Tal. Sangameshwar, Dist. Ratnagiri</p>
+      </article>
+      <article class="fam">
+        <span class="role">The Groom</span>
+        <h3>Saniket</h3>
+        <p>Youngest son of</p>
+        <p class="who">Mrs. Darshana and the late Shri Dasharath Rajaram Chavan</p>
+        <p>Rampur, Tal. Chiplun, Dist. Ratnagiri</p>
+      </article>
+    </div>
+    <p class="blessing">Shri Prakashsheth Shripatrao Salvi and Smt. Prafulla Prakashsheth Salvi, together with the Surve and Chavan families, request you to attend with your family and bless the couple.</p>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="evt th-eng" id="engagement">
+  <div class="wrap evt-grid">
+    <div class="evt-text">
+      <svg class="evt-icon" aria-hidden="true"><use href="#i-ring"/></svg>
+      <p class="eyebrow">The ring ceremony</p>
+      <h2>Engagement</h2>
+      <p class="lede">Two families come together as Saniket and Shrejal exchange rings and promises. Join us for the first celebration of the week.</p>
+      <div class="facts">
+        <div class="datebox"><b>29</b><span>Dec 2026</span></div>
+        <dl>
+          <div><dt>Day and time</dt><dd>Tuesday, 4:00 PM</dd></div>
+          <div><dt>Venue</dt><dd>Shirke Hall, Margtamhane</dd></div>
+        </dl>
+      </div>
+      <div class="acts">
+        <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Engagement%20-%20Saniket%20%26%20Shrejal&amp;dates=20261229T103000Z/20261229T130000Z&amp;location=Shirke%20Hall%2C%20Margtamhane">Add to calendar</a>
+        <a class="btn line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Shirke+Hall+Margtamhane+Chiplun">Directions</a>
+      </div>
+    </div>
+    <svg class="art" viewBox="0 0 320 380" role="img" aria-label="Couple dressed for the engagement: bride in a purple Paithani-style nauvari saree, groom in cream kurta with a saffron pheta"><use href="#couple"/></svg>
+  </div>
+</section>
+
+<!-- HALDI -->
+<section class="evt th-haldi flip" id="haldi">
+  <div class="wrap evt-grid">
+    <div class="evt-text">
+      <svg class="evt-icon" aria-hidden="true"><use href="#i-haldi"/></svg>
+      <p class="eyebrow">The turmeric ceremony</p>
+      <h2>Haldi</h2>
+      <p class="lede">The haldi is for the bride. The women of the family apply turmeric to Shrejal with songs, flowers and green bangles. Wear yellow and join the singing.</p>
+      <div class="facts">
+        <div class="datebox"><b>30</b><span>Dec 2026</span></div>
+        <dl>
+          <div><dt>Day and time</dt><dd>Wednesday, time shared by the family</dd></div>
+          <div><dt>Venue</dt><dd>Margtamhane</dd></div>
+        </dl>
+      </div>
+      <div class="acts">
+        <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Haldi%20of%20Shrejal&amp;dates=20261230/20261231&amp;location=Margtamhane%2C%20Chiplun">Add to calendar</a>
+        <a class="btn line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Margtamhane+Bajarpeth+Chiplun">Directions</a>
+      </div>
+    </div>
+    <svg class="art" viewBox="0 0 320 380" role="img" aria-label="Illustration of the bride at her haldi, in yellow with flower jewellery and a bowl of turmeric"><use href="#haldi-art"/></svg>
+  </div>
+</section>
+
+<!-- WEDDING -->
+<section class="evt th-wed" id="wedding">
+  <div class="wrap evt-grid">
+    <div class="evt-text">
+      <svg class="evt-icon" aria-hidden="true"><use href="#i-kalash"/></svg>
+      <p class="eyebrow">The wedding</p>
+      <h2>Shubh Vivah</h2>
+      <p class="lede">At the auspicious muhurat of Margashirsha Krishna Navami, Saniket and Shrejal take their vows. Your blessings will complete our joy.</p>
+      <div class="facts">
+        <div class="datebox"><b>01</b><span>Jan 2027</span></div>
+        <dl>
+          <div><dt>Day and time</dt><dd>Friday, 1:57 PM</dd></div>
+          <div><dt>Venue</dt><dd>Laxmibai Balasaheb Mate Sankul Banquet &amp; Wedding Hall, Chiplun</dd></div>
+        </dl>
+      </div>
+      <div class="acts">
+        <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding%20-%20Saniket%20%26%20Shrejal&amp;dates=20270101T082700Z/20270101T112700Z&amp;location=Laxmibai%20Balasaheb%20Mate%20Sankul%20Banquet%20and%20Wedding%20Hall%2C%20Chiplun">Add to calendar</a>
+        <a class="btn line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Laxmibai+Balasaheb+Mate+Sankul+Banquet+and+Wedding+Hall+Chiplun">Directions</a>
+      </div>
+    </div>
+    <svg class="art" viewBox="0 0 320 380" role="img" aria-label="Bride in a green nauvari saree and groom in ivory kurta and dhoti with a saffron pheta"><use href="#couple"/></svg>
+  </div>
+</section>
+
+<section class="block alt" id="venue">
+  <div class="wrap">
+    <p class="eyebrow">Where to find us</p>
+    <h2 class="title">Venues</h2>
+    <div class="venue">
+      <article class="vcard">
+        <span class="eyebrow">Wedding venue</span>
+        <h3>Laxmibai Balasaheb Mate Sankul Banquet &amp; Wedding Hall</h3>
+        <p>Chiplun, Dist. Ratnagiri</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Laxmibai+Balasaheb+Mate+Sankul+Banquet+and+Wedding+Hall+Chiplun">Open in Maps</a>
+      </article>
+      <article class="vcard">
+        <span class="eyebrow">Engagement venue</span>
+        <h3>Shirke Hall</h3>
+        <p>Margtamhane, Tal. Chiplun</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Shirke+Hall+Margtamhane+Chiplun">Open in Maps</a>
+      </article>
+      <article class="vcard">
+        <span class="eyebrow">Bride's address and haldi</span>
+        <h3>Margtamhane (Bajarpeth)</h3>
+        <p>Tal. Chiplun, Dist. Ratnagiri</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Margtamhane+Bajarpeth+Chiplun">Open in Maps</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <svg class="swastik" aria-hidden="true"><use href="#swastik"/></svg>
+    <div class="big">Saniket &amp; Shrejal</div>
+    <p>1 January 2027 &middot; Chiplun, Ratnagiri</p>
+    <p class="hosts">Mrs. Nayana Sunil Surve &middot; Shri Prakashsheth Shripatrao Salvi &middot; Smt. Prafulla Prakashsheth Salvi</p>
+    <div class="note">Kindly honour this invitation with your presence.</div>
+    <p style="margin-top:16px">The Surve, Salvi and Chavan families and relatives</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* countdown to the wedding, 1:57 PM IST */
+  var TARGET = Date.parse("2027-01-01T13:57:00+05:30");
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tick() {
+    var left = TARGET - Date.now();
+    if (left <= 0) {
+      ["d", "h", "m", "s"].forEach(function (k) { $("cd-" + k).textContent = "00"; });
+      $("count-note").textContent = "The celebration has begun. Thank you for your blessings.";
+      return;
+    }
+    var s = Math.floor(left / 1000);
+    $("cd-d").textContent = Math.floor(s / 86400);
+    $("cd-h").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("cd-m").textContent = pad(Math.floor(s % 3600 / 60));
+    $("cd-s").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* falling petals in the hero */
+  var pet = $("petals");
+  for (var i = 0; i < 16; i++) {
+    var p = document.createElement("span");
+    p.style.left = (Math.random() * 100) + "%";
+    p.style.animationDuration = (9 + Math.random() * 9) + "s";
+    p.style.animationDelay = (-Math.random() * 14) + "s";
+    p.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+    pet.appendChild(p);
+  }
+
+  /* highlight current section in the nav */
+  var links = [].slice.call(document.querySelectorAll("nav.top a"));
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ["home", "families", "engagement", "haldi", "wedding", "venue"].forEach(function (id) { io.observe($(id)); });
+  }
+})();
+</script>
